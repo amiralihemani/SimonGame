@@ -1,0 +1,114 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        var players = [];
+        var count = -1;
+
+        $(document).ready(function () {
+            $("#nextPlayer").on("click", showNextModal);
+        });
+
+        function showNextModal() {
+            players.push($("#playerName").val());
+            $("#playerName").val("");
+
+            if ((players.length == (count - 1))) {
+                redirectToGame();
+            }
+        }
+
+        function getCount() {
+            count = parseInt($("#playerCountText").val(), 10);
+            if (count == 1) {
+                redirectToGame();
+            }
+        }
+
+        function redirectToGame() {
+            $("#nextPlayer").text("Start Game");
+            $("#nextPlayer").off("click");
+            $("#nextPlayer").on("click", function () {
+                players.push($("#playerName").val());
+                localStorage.setItem("Names", players);
+                window.location.href = "GamePlay.html";
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button class="center-block" data-target="#playerCount" data-toggle="modal">
+                        <img src="Images/Simon.png" />
+                    </button>
+                    <div class="modal fade" id="playerCount" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Number of Players</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="playerCountText" type="text" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-target="#playerNames" data-toggle="modal" data-dismiss="modal" onclick="getCount()">Next</button>
+                                    <button class="btn btn-primary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="playerNames" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Players Name</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <input id="playerName" type="text" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="nextPlayer" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

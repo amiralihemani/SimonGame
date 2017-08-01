@@ -1,0 +1,144 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .modal {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+            .modal:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -4px;
+            }
+
+        .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+    <link href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <link href="StyleSheet.css" rel="stylesheet" />
+</head>
+<body style="height: 688px; background-image: url(Images/abstract_background.jpg)">
+    <div class="container">
+        <!--%--<form id="form1" runat="server">--%>-->
+        <audio id="audio"></audio>
+        <div style="top: 25%; left: 35%; position: absolute">
+            <table style="width: 332px" id="game_table" class="table">
+                <tr>
+                    <td>
+                        <img id="green" src="Images/green1.png" class="img-responsive img-fluid green" />
+                    </td>
+                    <td>
+                        <img id="red" src="Images/red1.png" class=" img-responsive img-fluid red" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="yellow" src="Images/yellow1.png" class=" img-responsive img-fluid yellow" />
+                    </td>
+                    <td>
+                        <img id="blue" src="Images/blue1.png" class=" img-responsive img-fluid blue" />
+                    </td>
+                </tr>
+            </table>
+            <!--<%--
+            </div>
+            <div>
+                --%>-->
+            <table class="table" style="width: 332px">
+                <tr style="align-content: center">
+                    <td>
+                        <img id="switch_on" src="Images/play.png" class="img-responsive pointer" onclick="turnOn()" />
+                    </td>
+                    <td>
+                        <table style="align-content: center">
+                            <tr>
+                                <td>
+                                    <img id="play_light" src="Images/red_light.png" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img id="play" src="Images/play_control_up.png" class="img-responsive img-fluid pointer" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label style="text-align: center;color:#14428b;background-color:aquamarine">Play</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table style="align-content: center">
+                            <tr>
+                                <td>
+                                    <table style="align-content: center">
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center">
+                                                <img id="strict_light" src="Images/red_light.png" style="align-content:center" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img id="strict" src="Images/strict_control_up.png" class="img-responsive img-fluid pointer" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label style="text-align: center; color:#14428b;background-color:aquamarine">Strict Mode</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="modal fade" id="information" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="info"></h2>
+                    </div>
+                </div>
+                <!--<%--<div class="modal-footer">
+                    <%--<button class="btn btn-primary" data-target="#playerNames" data-toggle="modal" data-dismiss="modal" onclick="getCount()">Next</button>
+                    <button class="btn btn-primary" data-dismiss="modal">Close</button>--%>
+                </div>--%>-->
+            </div>
+        </div>
+        <!--<%--
+        </form>--%>-->
+
+    </div>
+
+    <script src="JavaScript.js"></script>
+</body>
+</html>
