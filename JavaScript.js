@@ -162,7 +162,7 @@ function startGame() {
         playElement.removeEventListener("mousedown", mousedownImageChange, false);
         playElement.removeEventListener("mouseup", setInitialImage, false);
         playElement.removeEventListener("mouseout", setInitialImage, false);
-        playElement.removeEventListener("click", playGame, false);
+        //playElement.removeEventListener("click", playGame, false);
         if (playerScore.length == 1) {
             document.getElementById("strict").removeEventListener("click", switchStrictMode, false);
         }
